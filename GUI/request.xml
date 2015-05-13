@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><priceCollectorConfig version="4"><userAgentConfig>
+	<!--Windows	-->
+	<useragent id="Windows_FireFox" isMobile="false" isTablet="false" width="1920" height="1080">
+	Mozilla/5.0 (Windows NT 6.2; rv:23.0) Gecko/20100101 Firefox/23.0
+	</useragent>
+	<useragent id="Windows_Chrome" isMobile="false" isTablet="false" width="1920" height="1080">
+	Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2049.0 Safari/537.36
+	</useragent>
+	<useragent id="Windows_IE11" isMobile="false" isTablet="false" width="1920" height="1080">
+	Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko
+	</useragent>
+<!--Macintosh 	-->
+	<useragent id="Macintosh_FireFox" isMobile="false" isTablet="false" width="1920" height="1080">
+	Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:23.0) Gecko/20100101 Firefox/23.0
+	</useragent>
+	<useragent id="Macintosh_Safari" isMobile="false" isTablet="false" width="1920" height="1080">
+	Mozilla/5.0 (Macintosh; Intel Mac OS X 10\_6\_8) AppleWebKit/537.13+ (KHTML, like Gecko) Version/5.1.7 Safari/534.57.2
+	</useragent>
+<!--Ubuntu 	-->
+	<useragent id="Ubuntu_FireFox" isMobile="false" isTablet="false" width="1920" height="1080">
+	Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:24.0) Gecko/20100101 Firefox/24.0
+	</useragent>
+<!--Nexus 4 	-->
+	<useragent id="Nexus4" isMobile="true" isTablet="false" width="384" height="640">
+	Mozilla/5.0 (Linux; Android 4.2.1; en-us; Nexus 4 Build/JOP40D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19
+	</useragent>
+<!--HTC One 	-->
+	<useragent id="HTC_ONE" isMobile="true" isTablet="false" width="360" height="640">
+	Mozilla/5.0 (Linux; Android 4.0.3; HTC One X Build/IML74K) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.133 Mobile Safari/535.19
+	</useragent>
+<!--Sony_Xperia 	-->
+	<useragent id="Sony_Xperia" isMobile="true" isTablet="false" width="360" height="640">
+	Mozilla/5.0 (Linux; U; Android 4.2; en-us; SonyC6903 Build/14.1.G.1.518) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30
+	</useragent>
+<!--Samsung Galaxy Tab 	-->
+	<useragent id="Samsung_Galaxy_Tab" isMobile="true" isTablet="true" width="1024" height="600">
+	Mozilla/5.0 (Linux; U; Android 2.2; en-us; SCH-I800 Build/FROYO) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1
+	</useragent>
+<!--iPhone 4 	-->
+	<useragent id="iPhone_4" isMobile="true" isTablet="false" width="320" height="480">
+	Mozilla/5.0 (iPhone; U; CPU iPhone OS 4\_2\_1 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8C148 Safari/6533.18.5
+	</useragent>
+<!--iPhone 6	-->
+	<useragent id="iPhone_6" isMobile="true" isTablet="false" width="375" height="667">
+	Mozilla/5.0 (iPhone; CPU iPhone OS 8\_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345d Safari/600.1.4
+	</useragent>
+<!--iPad 3	-->
+	<useragent id="iPad_3" isMobile="true" isTablet="true" width="1024" height="768">
+	Mozilla/5.0 (iPad; CPU OS 7\_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53
+	</useragent>
+
+</userAgentConfig>	
+<webseiten>
+
+
+
+
+
+<config id="AmazonFireHD"><website>http://www.amazon.de/gp/product/B00KQEIMY6/</website><cssPath>#buyingPriceValue &gt; b</cssPath><cssPath>#priceblock_ourprice</cssPath><referer>http://www.amazon.de</referer><userAgents selection="all"/></config>
+	</webseiten>		
+</priceCollectorConfig>
