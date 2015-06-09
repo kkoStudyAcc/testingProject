@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><priceCollectorConfig version="999"><userAgentConfig>
+	<!--Windows	-->
+	<useragent id="Windows_FireFox" isMobile="false" isTablet="false" width="1920" height="1080">
+	Mozilla/5.0 (Windows NT 6.2; rv:23.0) Gecko/20100101 Firefox/23.0
+	</useragent>	
+</userAgentConfig>	
+<webseiten>
+	
+<config id="Sanitas_SMG_11_Mini-Massager"><website>http://www.amazon.de/dp/B002TG3PIC/</website><cssPath>#priceblock_ourprice</cssPath><cssPath>#priceblock_ourprice</cssPath><referer>http://www.amazon.de</referer><userAgents selection="all"/></config>
+
+	</webseiten>		
+</priceCollectorConfig>

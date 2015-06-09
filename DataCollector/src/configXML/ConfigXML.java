@@ -79,10 +79,12 @@ private ArrayList<RequestAgent> agents = new ArrayList<RequestAgent>();
 
 
 public static ConfigXML loadConfigXML(String Path){
+	if(Path == null)
+		return null;
 	File fXmlFile = new File(Path);
 	DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 	DocumentBuilder dBuilder;
-	
+
 	try {
 		dBuilder = dbFactory.newDocumentBuilder();
 		Document doc = dBuilder.parse(fXmlFile);
