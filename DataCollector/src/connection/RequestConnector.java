@@ -53,8 +53,8 @@ public class RequestConnector {
 	private String XPATH;
 	public static void main(String[] args){
 		RequestConnector con = new RequestConnector();
-		con.getContent();
-		//con.doAmazonRequest();
+		//con.getContent();
+		con.doAmazonRequest();
 		//con.doOrbitzRequest();
 	}
 	public RequestConnector(){}
@@ -183,7 +183,7 @@ public class RequestConnector {
 			if(requestAgent.whichKindOfDevice() == RequestAgent.normal){
 				productSelector = "s-item-container";
 				priceSelector = "a-size-base a-color-price s-price a-text-bold";
-				productNameSelector = "a-size-medium s-inline s-access-title a-text-normal";
+				productNameSelector = "a-size-medium a-color-null s-inline s-access-title a-text-normal";
 			}else{
 				productSelector = "productContainer";
 				priceSelector ="dpOurPrice";
@@ -196,7 +196,7 @@ public class RequestConnector {
 				//Element outprice = e.getElementsByAttributeValueContaining("class", "dpOurPrice").first();
 				if(outprice != null)
 				{
-					
+					//System.out.println(e.getElementsByAttributeValueContaining("class", productNameSelector).);
 					toReturn.put(e.getElementsByAttributeValueContaining("class", productNameSelector).first().text(), outprice.text());
 					//System.out.println(e.getElementsByAttributeValueContaining("class", productNameSelector).first().text()+":"+outprice.text());
 				}
@@ -224,7 +224,7 @@ public class RequestConnector {
 	}
 	public void doAmazonRequest(){
 		//String URL = "http://www.amazon.de/s/ref=nb_sb_noss_2/275-2451850-7312117?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&url=search-alias%3Daps&field-keywords=Spiegelreflex";
-		String URL = "http://www.amazon.de/s/ref=nb_sb_noss_1?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&url=search-alias%3Daps&field-keywords=h%C3%A4ngematte&rh=i%3Aaps%2Ck%3Ah%C3%A4ngematte";
+		String URL = "http://sqat.eu-gb.mybluemix.net/";
 		//String useragent = "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_3_3 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8J2 Safari/6533.18.5";
 		String useragent ="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:32.0) Gecko/20100101 Firefox/32.0";
 		//int kindOFDevice = RequestAgent.mobile;
