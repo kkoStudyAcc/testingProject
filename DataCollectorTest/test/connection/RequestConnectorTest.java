@@ -22,13 +22,14 @@ public class RequestConnectorTest {
 		
 		// create GenericAgent
 		String useragent ="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:32.0) Gecko/20100101 Firefox/32.0";
-		int kindOFDevice = RequestAgent.mobile;
+		int kindOFDevice = RequestAgent.normal;
 		GenericAgent agent = new GenericAgent("bla",useragent , kindOFDevice,1920,1080);
 		
 		// send request to test method
-		response = requestConnector.GetContentFromAmazon("http://sqat.eu-gb.mybluemix.net", "Test", agent);
-		
+		response = requestConnector.GetContentFromAmazon(null, "Test", agent);
+		System.out.println(response);
 		// is response empty?
 		assertNotNull(response);
 	}
 }
+ 

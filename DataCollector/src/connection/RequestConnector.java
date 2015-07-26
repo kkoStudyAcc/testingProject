@@ -165,13 +165,13 @@ public class RequestConnector {
 		}
 		return toReturn;
 	}
-	public HashMap<String,String> GetContentFromAmazon(String URL,String referer,RequestAgent requestAgent){
+	public HashMap<String,String> GetContentFromAmazon(String URL,String referrer,RequestAgent requestAgent){
 		HashMap<String,String> toReturn = new HashMap<String,String>();
 		try {
 		Response response= Jsoup.connect(URL)
 		           .ignoreContentType(true)
 		           .userAgent(requestAgent.httpString())  
-		           .referrer("bla")
+		           .referrer(referrer)
 		           .header("Connection", "close")
 		           .timeout(12000)
 		           .followRedirects(true)
