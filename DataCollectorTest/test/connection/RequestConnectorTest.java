@@ -105,6 +105,8 @@ public class RequestConnectorTest {
 	
 	/* ------- Tests fuer Parameter: requestAgent ---------*/
 	
+	/* RequestAgent: Parameter name */
+	
 	// ÄK 1
 	@Test
 	public void testRequestAgentNameNull(){
@@ -131,6 +133,96 @@ public class RequestConnectorTest {
 		assertTrue(response.containsKey("BenQ GL2450H 61 cm (24 Zoll) LED Monitor (Full-HD, HDMI, VGA, 2ms Reaktionszeit) schwarz") 
 				&& response.get("BenQ GL2450H 61 cm (24 Zoll) LED Monitor (Full-HD, HDMI, VGA, 2ms Reaktionszeit) schwarz").equals("EUR 149,00"));
 	}
+	
+
+	/* RequestAgent: Parameter httpString */
+	
+	// ÄK 4
+	@Test(expected = IllegalArgumentException.class)
+	public void testRequestAgentHTTPStringNull(){
+		GenericAgent agent = new GenericAgent("Name des RequestAgents", null, kindOFDevice, 1920, 1080);
+		response = requestConnector.GetContentFromAmazon("http://sqat.eu-gb.mybluemix.net", "Test", agent);
+	}
+	// ÄK 5
+	public void testRequestAgentHTTPStringEmpty(){
+		
+	}
+	// ÄK 6
+	public void testRequestAgentHTTPStringRandom(){
+		
+	}
+	// ÄK 7
+	public void testRequestAgentHTTPStringKnownUserAgent(){
+		
+	}
+	
+	/* RequestAgent: Parameter kindOfDevice */
+	
+	// ÄK 8
+	public void testRequestAgentKindOfDeviceNull(){
+		
+	}
+	// ÄK 9
+	public void testRequestAgentKindOfDeviceIntegerValid(){
+		
+	}
+	// ÄK 10
+	public void testRequestAgentKindOfDeviceIntegerTooSmall(){
+		
+	}
+	// ÄK 11
+	public void testRequestAgentKindOfDeviceIntegerTooBig(){
+		
+	}
+	
+	/* RequestAgent: Parameter width */
+	
+	// ÄK 12
+	public void testRequestAgentWidthNull(){
+		
+	}
+	// ÄK 13
+	public void testRequestAgentWidthRandom(){
+		
+	}
+	// ÄK 14
+	public void testRequestAgentWidthKnownResolution(){
+		
+	}
+	// ÄK 15
+	public void testRequestAgentWidthMAXInteger(){
+		
+	}
+	// ÄK 16
+	public void testRequestAgentWidthMINInteger(){
+		
+	}
+	
+	/* RequestAgent: Parameter height */
+	
+	// ÄK 17
+	public void testRequestAgentHeightNull(){
+		
+	}
+	// ÄK 18
+	public void testRequestAgentHeightRandom(){
+		
+	}
+	// ÄK 19
+	public void testRequestAgentHeightKnownResolution(){
+		
+	}
+	// ÄK 20
+	public void testRequestAgentHeightMAXInteger(){
+		
+	}
+	// ÄK 21
+	public void testRequestAgentHeightMINInteger(){
+		
+	}
+	
+	
+	
 	
 }
  
