@@ -140,85 +140,130 @@ public class RequestConnectorTest {
 	// ÄK 4
 	@Test(expected = IllegalArgumentException.class)
 	public void testRequestAgentHTTPStringNull(){
-		GenericAgent agent = new GenericAgent("Name des RequestAgents", null, kindOFDevice, 1920, 1080);
+		GenericAgent agent = new GenericAgent("TestAgent", null, kindOFDevice, 1920, 1080);
 		response = requestConnector.GetContentFromAmazon("http://sqat.eu-gb.mybluemix.net", "Test", agent);
 	}
 	// ÄK 5
+	@Test
 	public void testRequestAgentHTTPStringEmpty(){
-		
+		GenericAgent agent = new GenericAgent("TestAgent", "", kindOFDevice, 1920, 1080);
+		response = requestConnector.GetContentFromAmazon("http://sqat.eu-gb.mybluemix.net", "Test", agent);
+		assertTrue(response.containsKey("BenQ GL2450H 61 cm (24 Zoll) LED Monitor (Full-HD, HDMI, VGA, 2ms Reaktionszeit) schwarz") 
+				&& response.get("BenQ GL2450H 61 cm (24 Zoll) LED Monitor (Full-HD, HDMI, VGA, 2ms Reaktionszeit) schwarz").equals("EUR 149,00"));
 	}
 	// ÄK 6
+	@Test
 	public void testRequestAgentHTTPStringRandom(){
-		
+		GenericAgent agent = new GenericAgent("TestAgent", "Beliebiger String", kindOFDevice, 1920, 1080);
+		response = requestConnector.GetContentFromAmazon("http://sqat.eu-gb.mybluemix.net", "Test", agent);
+		assertTrue(response.containsKey("BenQ GL2450H 61 cm (24 Zoll) LED Monitor (Full-HD, HDMI, VGA, 2ms Reaktionszeit) schwarz") 
+				&& response.get("BenQ GL2450H 61 cm (24 Zoll) LED Monitor (Full-HD, HDMI, VGA, 2ms Reaktionszeit) schwarz").equals("EUR 149,00"));
 	}
 	// ÄK 7
+	@Test
 	public void testRequestAgentHTTPStringKnownUserAgent(){
-		
+		GenericAgent agent = new GenericAgent("TestAgent", "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:32.0) Gecko/20100101 Firefox/32.0", kindOFDevice, 1920, 1080);
+		response = requestConnector.GetContentFromAmazon("http://sqat.eu-gb.mybluemix.net", "Test", agent);
+		assertTrue(response.containsKey("BenQ GL2450H 61 cm (24 Zoll) LED Monitor (Full-HD, HDMI, VGA, 2ms Reaktionszeit) schwarz") 
+				&& response.get("BenQ GL2450H 61 cm (24 Zoll) LED Monitor (Full-HD, HDMI, VGA, 2ms Reaktionszeit) schwarz").equals("EUR 149,00"));
 	}
 	
 	/* RequestAgent: Parameter kindOfDevice */
 	
 	// ÄK 8
-	public void testRequestAgentKindOfDeviceNull(){
-		
+	@Test
+	public void testRequestAgentKindOfDeviceIntegerValid(){
+		GenericAgent agent = new GenericAgent("TestAgent", useragent, 0, 1920, 1080);
+		response = requestConnector.GetContentFromAmazon("http://sqat.eu-gb.mybluemix.net", "Test", agent);
+		assertTrue(response.containsKey("BenQ GL2450H 61 cm (24 Zoll) LED Monitor (Full-HD, HDMI, VGA, 2ms Reaktionszeit) schwarz") 
+				&& response.get("BenQ GL2450H 61 cm (24 Zoll) LED Monitor (Full-HD, HDMI, VGA, 2ms Reaktionszeit) schwarz").equals("EUR 149,00"));
 	}
 	// ÄK 9
-	public void testRequestAgentKindOfDeviceIntegerValid(){
-		
-	}
-	// ÄK 10
+	@Test
 	public void testRequestAgentKindOfDeviceIntegerTooSmall(){
-		
+		GenericAgent agent = new GenericAgent("TestAgent", useragent, -1, 1920, 1080);
+		response = requestConnector.GetContentFromAmazon("http://sqat.eu-gb.mybluemix.net", "Test", agent);
+		HashMap<String,String> expected = new HashMap<String,String>();
+		assertEquals(expected, response);
 	}
-	// ÄK 11
+
+	// ÄK 10
+	@Test
 	public void testRequestAgentKindOfDeviceIntegerTooBig(){
-		
+		GenericAgent agent = new GenericAgent("TestAgent", useragent, 4, 1920, 1080);
+		response = requestConnector.GetContentFromAmazon("http://sqat.eu-gb.mybluemix.net", "Test", agent);
+		HashMap<String,String> expected = new HashMap<String,String>();
+		assertEquals(expected, response);
 	}
 	
 	/* RequestAgent: Parameter width */
 	
+	// ÄK 11
+	@Test
+	public void testRequestAgentWidthRandom(){
+		GenericAgent agent = new GenericAgent("TestAgent", useragent, kindOFDevice, 123456, 1080);
+		response = requestConnector.GetContentFromAmazon("http://sqat.eu-gb.mybluemix.net", "Test", agent);
+		assertTrue(response.containsKey("BenQ GL2450H 61 cm (24 Zoll) LED Monitor (Full-HD, HDMI, VGA, 2ms Reaktionszeit) schwarz") 
+				&& response.get("BenQ GL2450H 61 cm (24 Zoll) LED Monitor (Full-HD, HDMI, VGA, 2ms Reaktionszeit) schwarz").equals("EUR 149,00"));
+	}
 	// ÄK 12
-	public void testRequestAgentWidthNull(){
-		
+	@Test
+	public void testRequestAgentWidthKnownResolution(){
+		GenericAgent agent = new GenericAgent("TestAgent", useragent, kindOFDevice, 800, 1080);
+		response = requestConnector.GetContentFromAmazon("http://sqat.eu-gb.mybluemix.net", "Test", agent);
+		assertTrue(response.containsKey("BenQ GL2450H 61 cm (24 Zoll) LED Monitor (Full-HD, HDMI, VGA, 2ms Reaktionszeit) schwarz") 
+				&& response.get("BenQ GL2450H 61 cm (24 Zoll) LED Monitor (Full-HD, HDMI, VGA, 2ms Reaktionszeit) schwarz").equals("EUR 149,00"));
 	}
 	// ÄK 13
-	public void testRequestAgentWidthRandom(){
-		
+	@Test
+	public void testRequestAgentWidthMAXInteger(){
+		GenericAgent agent = new GenericAgent("TestAgent", useragent, kindOFDevice, Integer.MAX_VALUE, 1080);
+		response = requestConnector.GetContentFromAmazon("http://sqat.eu-gb.mybluemix.net", "Test", agent);
+		assertTrue(response.containsKey("BenQ GL2450H 61 cm (24 Zoll) LED Monitor (Full-HD, HDMI, VGA, 2ms Reaktionszeit) schwarz") 
+				&& response.get("BenQ GL2450H 61 cm (24 Zoll) LED Monitor (Full-HD, HDMI, VGA, 2ms Reaktionszeit) schwarz").equals("EUR 149,00"));
 	}
 	// ÄK 14
-	public void testRequestAgentWidthKnownResolution(){
-		
-	}
-	// ÄK 15
-	public void testRequestAgentWidthMAXInteger(){
-		
-	}
-	// ÄK 16
+	@Test
 	public void testRequestAgentWidthMINInteger(){
-		
+		GenericAgent agent = new GenericAgent("TestAgent", useragent, kindOFDevice, Integer.MIN_VALUE, 1080);
+		response = requestConnector.GetContentFromAmazon("http://sqat.eu-gb.mybluemix.net", "Test", agent);
+		assertTrue(response.containsKey("BenQ GL2450H 61 cm (24 Zoll) LED Monitor (Full-HD, HDMI, VGA, 2ms Reaktionszeit) schwarz") 
+				&& response.get("BenQ GL2450H 61 cm (24 Zoll) LED Monitor (Full-HD, HDMI, VGA, 2ms Reaktionszeit) schwarz").equals("EUR 149,00"));
 	}
 	
 	/* RequestAgent: Parameter height */
 	
+	// ÄK 15
+	@Test
+	public void testRequestAgentHeightRandom(){
+		GenericAgent agent = new GenericAgent("TestAgent", useragent, kindOFDevice, 1920, 654321);
+		response = requestConnector.GetContentFromAmazon("http://sqat.eu-gb.mybluemix.net", "Test", agent);
+		assertTrue(response.containsKey("BenQ GL2450H 61 cm (24 Zoll) LED Monitor (Full-HD, HDMI, VGA, 2ms Reaktionszeit) schwarz") 
+				&& response.get("BenQ GL2450H 61 cm (24 Zoll) LED Monitor (Full-HD, HDMI, VGA, 2ms Reaktionszeit) schwarz").equals("EUR 149,00"));
+	}
+	// ÄK 16
+	@Test
+	public void testRequestAgentHeightKnownResolution(){
+		GenericAgent agent = new GenericAgent("TestAgent", useragent, kindOFDevice, 1920, 600);
+		response = requestConnector.GetContentFromAmazon("http://sqat.eu-gb.mybluemix.net", "Test", agent);
+		assertTrue(response.containsKey("BenQ GL2450H 61 cm (24 Zoll) LED Monitor (Full-HD, HDMI, VGA, 2ms Reaktionszeit) schwarz") 
+				&& response.get("BenQ GL2450H 61 cm (24 Zoll) LED Monitor (Full-HD, HDMI, VGA, 2ms Reaktionszeit) schwarz").equals("EUR 149,00"));
+	}
 	// ÄK 17
-	public void testRequestAgentHeightNull(){
-		
+	@Test
+	public void testRequestAgentHeightMAXInteger(){
+		GenericAgent agent = new GenericAgent("TestAgent", useragent, kindOFDevice, 1920, Integer.MAX_VALUE);
+		response = requestConnector.GetContentFromAmazon("http://sqat.eu-gb.mybluemix.net", "Test", agent);
+		assertTrue(response.containsKey("BenQ GL2450H 61 cm (24 Zoll) LED Monitor (Full-HD, HDMI, VGA, 2ms Reaktionszeit) schwarz") 
+				&& response.get("BenQ GL2450H 61 cm (24 Zoll) LED Monitor (Full-HD, HDMI, VGA, 2ms Reaktionszeit) schwarz").equals("EUR 149,00"));
 	}
 	// ÄK 18
-	public void testRequestAgentHeightRandom(){
-		
-	}
-	// ÄK 19
-	public void testRequestAgentHeightKnownResolution(){
-		
-	}
-	// ÄK 20
-	public void testRequestAgentHeightMAXInteger(){
-		
-	}
-	// ÄK 21
+	@Test
 	public void testRequestAgentHeightMINInteger(){
-		
+		GenericAgent agent = new GenericAgent("TestAgent", useragent, kindOFDevice, 1920, Integer.MIN_VALUE);
+		response = requestConnector.GetContentFromAmazon("http://sqat.eu-gb.mybluemix.net", "Test", agent);
+		assertTrue(response.containsKey("BenQ GL2450H 61 cm (24 Zoll) LED Monitor (Full-HD, HDMI, VGA, 2ms Reaktionszeit) schwarz") 
+				&& response.get("BenQ GL2450H 61 cm (24 Zoll) LED Monitor (Full-HD, HDMI, VGA, 2ms Reaktionszeit) schwarz").equals("EUR 149,00"));
 	}
 	
 	
