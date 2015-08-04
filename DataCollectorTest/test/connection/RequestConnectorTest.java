@@ -33,7 +33,7 @@ public class RequestConnectorTest {
 	}
 	
 	
-	/* ------- Tests fuer Parameter: String ---------*/
+	/* ------- Tests fuer Parameter: URL ---------*/
 	
 	// ÄK 1
 	@Test(expected = IllegalArgumentException.class)
@@ -63,12 +63,12 @@ public class RequestConnectorTest {
 		response = buildTestserverResponse(agent);
 		assertTrue(response.containsKey(expectedProductName) && response.get(expectedProductName).equals(expectedProductPrice));
 	}
-	
-	
-	
-	
-	
-	
+		
+		
+		
+		
+		
+		
 	/* ------- Tests fuer Parameter: referrer ---------*/
 	
 	// ÄK 1
@@ -120,9 +120,9 @@ public class RequestConnectorTest {
 	// ÄK 2
 	@Test
 	public void testRequestAgentNameEmpty(){
-		GenericAgent agent = new GenericAgent("", useragent, kindOFDevice, 1920, 1080);
-		response = buildTestserverResponse(agent);
-		assertTrue(response.containsKey(expectedProductName) && response.get(expectedProductName).equals(expectedProductPrice));
+	GenericAgent agent = new GenericAgent("", useragent, kindOFDevice, 1920, 1080);
+	response = buildTestserverResponse(agent);
+	assertTrue(response.containsKey(expectedProductName) && response.get(expectedProductName).equals(expectedProductPrice));
 	}
 	
 	// ÄK 3
@@ -133,7 +133,7 @@ public class RequestConnectorTest {
 		assertTrue(response.containsKey(expectedProductName) && response.get(expectedProductName).equals(expectedProductPrice));
 	}
 	
-
+	
 	/* RequestAgent: Parameter httpString */
 	
 	// ÄK 4
@@ -197,7 +197,7 @@ public class RequestConnectorTest {
 		HashMap<String,String> expected = new HashMap<String,String>();
 		assertEquals(expected, response);
 	}
-
+	
 	// ÄK 10
 	@Test
 	public void testRequestAgentKindOfDeviceIntegerTooBig(){
